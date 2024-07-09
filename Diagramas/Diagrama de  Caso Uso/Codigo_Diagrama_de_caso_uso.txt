@@ -1,0 +1,123 @@
+@startuml
+
+(Ingresar mediante contraseña y nombre) as (Ingreso)
+
+left to right direction
+Usuario --> (Ingreso)
+(Ingreso) <-- Administrador
+(Ingreso) <-- Vendedor
+(Ingreso) <-- Cliente
+(Ingreso) <-- Duenio
+
+rectangle "Menu Editar Usuario" {
+  usecase "Nombre" as MAB1
+  usecase "Apellido" as MAB2
+  usecase "Id" as MAB3
+  usecase "Clave" as MAB4
+  usecase "Direccion" as MAB5
+  usecase "Email" as MAB6
+  usecase "Telefono" as MAB7
+}
+Usuario --> MAB1
+Usuario --> MAB2
+Usuario --> MAB3
+Usuario --> MAB4
+Usuario --> MAB5
+Usuario --> MAB6
+Usuario --> MAB7
+
+rectangle "Menu Modificar Usuario" {
+  usecase "Nombre" as MBA1
+  usecase "Apellido" as MBA2
+  usecase "Id" as MBA3
+  usecase "Direccion" as MBA4
+  usecase "Email" as MBA5
+  usecase "Telefono" as MBA6
+}
+Usuario --> MBA1
+Usuario --> MBA2
+Usuario --> MBA3
+Usuario --> MBA4
+Usuario --> MBA5
+Usuario --> MBA6
+
+rectangle "Menu de Administrador" {
+  usecase "Informacion Personal" as MA1
+  usecase "Editar perfil" as MA2
+  usecase "Informacion VENDEDOR" as MA3
+  usecase "Aniadir VENDEDOR" as MA4
+  usecase "Editar VENDEDOR" as MA5
+  usecase "Informacion CLIENTE" as MA6
+  usecase "salir" as MA7
+}
+Administrador --> MA1
+Administrador --> MA2 
+Administrador --> MA3 
+Administrador --> MA4 
+Administrador --> MA5 
+Administrador --> MA6 
+Administrador --> MA7
+
+
+rectangle "Menu de Duenio" {
+  usecase "Informacion PERSONAL" as ME1
+  usecase "Aniadir DUENIO" as ME2
+  usecase "Informacion CODUENIO" as ME3
+  usecase "Editar Perfil" as ME4
+  usecase "Informacion de ADMINISTRADOR" as ME5
+  usecase "Aniadir ADMINISTRADOR" as ME6
+  usecase "Editar ADMINISTRADOR" as ME7
+  usecase "Agregar SUCURSAL" as ME8
+  usecase "Listar SUCURSALES" as ME9
+  usecase "Agregar VUELO" as ME10
+  usecase "Listar VUELOS" as ME11
+  usecase "Agregar HOTEL" as ME12
+  usecase "Listar HOTELES" as ME13
+  usecase "Listado de VENDEDORES" as ME14
+  usecase "salir" as ME15
+}
+Duenio --> ME1
+Duenio --> ME2
+Duenio --> ME3
+Duenio --> ME4
+Duenio --> ME5
+Duenio --> ME6
+Duenio --> ME7
+Duenio --> ME8
+Duenio --> ME9
+Duenio --> ME10
+Duenio --> ME11
+Duenio --> ME12
+Duenio --> ME13
+Duenio --> ME14
+Duenio --> ME15
+
+rectangle "Menu de Cliente" {
+  usecase "Informacion PERSONAL" as MI1
+  usecase "Editar Perfil" as MI2
+  usecase "Consultar SUCURSAL" as MI3
+  usecase "Consultar HOTEL" as MI4
+  usecase "Consultar VUELO" as MI5
+  usecase "salir" as MI6
+}
+Cliente --> MI1
+Cliente --> MI2
+Cliente --> MI3
+Cliente --> MI4
+Cliente --> MI5
+Cliente --> MI6
+
+rectangle "Menu de Vendedor" {
+  usecase "Informacion Personal" as MO1
+  usecase "Editar Perfil" as MO2
+  usecase "Informacion de Cliente" as MO3
+  usecase "Vender" as MO4
+  usecase "salir" as MO5
+}
+Vendedor --> MO1
+Vendedor --> MO2
+Vendedor --> MO3
+Vendedor --> MO4
+Vendedor --> MO5
+
+@enduml

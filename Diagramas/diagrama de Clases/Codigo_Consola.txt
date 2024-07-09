@@ -1,0 +1,50 @@
+@startuml
+
+hide members
+hide circle
+show fields
+SKINPARAM classAttributeIconSize 0
+
+package MyUtils <<folder>>{
+  class Consola{
+    + {static} String BLACK_BACKGROUND
+    + {static} String RED_BACKGROUND
+    + {static} String GREEN_BACKGROUND
+    + {static} String YELLOW_BACKGROUND
+    + {static} String BLUE_BACKGROUND
+    + {static} String PURPLE_BACKGROUND
+    + {static} String CYAN_BACKGROUND
+    + {static} String WHITE_BACKGROUND
+    + {static} String BLACK_TEXT
+    + {static} String RED_TEXT
+    + {static} String GREEN_TEXT
+    + {static} String YELLOW_TEXT
+    + {static} String BLUE_TEXT
+    + {static} String PURPLE_TEXT
+    + {static} String CYAN_TEXT
+    + {static} String WHITE_TEXT
+    + {static} String RESET_COLOR
+    --
+    + {static} void print(String)
+    + {static} void println(String)
+    + {static} void printlt(String)
+    + {static} void printltn(String)
+    + {static} String leerString(String)
+    + {static} String leerString()
+    + {static} Integer leerEnteroEntre(int, int, String)
+    + {static} Integer leerEntero(String)
+    + {static} Integer leerEntero()
+    + {static} boolean leerBooleano(String)
+    + {static} boolean leerBooleano()
+    + {static} char leerCaracter(String)
+    + {static} char leerCaracter()
+    + {static} float leerFlotante(String)
+    + {static} float leerFlotante()
+    + {static} void mostrarMensajeConColor(String, int)
+    + {static} void mostrarMensajeConFondo(String, int)
+    + {static} void linea(int)
+  }
+}
+
+
+@enduml

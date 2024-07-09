@@ -1,0 +1,37 @@
+@startuml
+left to right direction
+
+rectangle "Menu de Duenio" {
+  usecase "Informacion PERSONAL" as ME1
+  usecase "Aniadir DUENIO" as ME2
+  usecase "Informacion CODUENIO" as ME3
+  usecase "Editar Perfil" as ME4
+  usecase "Informacion de ADMINISTRADOR" as ME5
+  usecase "Aniadir ADMINISTRADOR" as ME6
+  usecase "Editar ADMINISTRADOR" as ME7
+  usecase "Agregar SUCURSAL" as ME8
+  usecase "Listar SUCURSALES" as ME9
+  usecase "Agregar VUELO" as ME10
+  usecase "Listar VUELOS" as ME11
+  usecase "Agregar HOTEL" as ME12
+  usecase "Listar HOTELES" as ME13
+  usecase "Listado de VENDEDORES" as ME14
+  usecase "salir" as ME15
+}
+Duenio --> ME1
+Duenio --> ME2
+Duenio --> ME3
+Duenio --> ME4
+Duenio --> ME5
+Duenio --> ME6
+Duenio --> ME7
+Duenio --> ME8
+Duenio --> ME9
+Duenio --> ME10
+Duenio --> ME11
+Duenio --> ME12
+Duenio --> ME13
+Duenio --> ME14
+Duenio --> ME15
+
+@enduml

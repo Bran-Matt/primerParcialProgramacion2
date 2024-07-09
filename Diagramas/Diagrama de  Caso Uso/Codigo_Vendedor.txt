@@ -1,0 +1,17 @@
+@startuml
+left to right direction
+
+rectangle "Menu de Vendedor" {
+  usecase "Informacion Personal" as MO1
+  usecase "Editar Perfil" as MO2
+  usecase "Informacion de Cliente" as MO3
+  usecase "Vender" as MO4
+  usecase "salir" as MO5
+}
+Vendedor --> MO1
+Vendedor --> MO2
+Vendedor --> MO3
+Vendedor --> MO4
+Vendedor --> MO5
+
+@enduml

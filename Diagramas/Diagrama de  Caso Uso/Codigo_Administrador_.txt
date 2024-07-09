@@ -1,0 +1,22 @@
+@startuml
+left to right direction
+
+rectangle "Menu de Administrador" {
+  usecase "Informacion Personal" as MA1
+  usecase "Editar perfil" as MA2
+  usecase "Informacion VENDEDOR" as MA3
+  usecase "Aniadir VENDEDOR" as MA4
+  usecase "Editar VENDEDOR" as MA5
+  usecase "Informacion CLIENTE" as MA6
+  usecase "salir" as MA7
+}
+Administrador --> MA1
+Administrador --> MA2 
+Administrador --> MA3 
+Administrador --> MA4 
+Administrador --> MA5 
+Administrador --> MA6 
+Administrador --> MA7
+
+
+@enduml

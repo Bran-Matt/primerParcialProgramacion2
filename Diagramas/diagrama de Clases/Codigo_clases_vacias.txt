@@ -1,0 +1,51 @@
+@startuml
+
+hide members
+hide circle
+show fields
+SKINPARAM classAttributeIconSize 0
+
+package MyUtils <<folder>>{
+  class Consola{
+  }
+}
+
+package ColumbiaViajes <<folder>>{
+  class Main{
+  }
+  class EntradaSalida <<Serializable>>{
+  }
+  class Sucursal <<Serializable>>{
+  }
+  class Hotel <<Serializable>>{
+  }
+  class Vuelo <<Serializable>>{
+  }
+  class Empresa <<Serializable>>{
+  }
+  abstract class Usuario <<Serializable>>{
+  }
+  class Duenio <<Serializable>>{
+  }
+  class Administrador <<Serializable>>{
+  }
+  class Vendedor <<Serializable>>{
+  }
+  class Cliente <<Serializable>>{
+  }
+}
+
+Usuario <|-down- "*" Cliente
+Usuario <|-left- "*" Vendedor
+Usuario <|-down- "*" Administrador
+Usuario <|-down- "*" Duenio
+
+Empresa "1" o-down- "*" Usuario : -usuarios
+Empresa "1" o-down- "*" Sucursal : -sucursales
+Empresa "1" o-right- "*" Vuelo : -vuelos
+Empresa "1" o-left- "*" Hotel : -hoteles
+
+EntradaSalida "1" <-- "1" Empresa
+EntradaSalida <- Main
+
+@enduml

@@ -1,0 +1,225 @@
+@startuml
+
+hide members
+hide circle
+show fields
+SKINPARAM classAttributeIconSize 0
+
+package MyUtils <<folder>>{
+  class Consola{
+    + {static} String BLACK_BACKGROUND
+    + {static} String RED_BACKGROUND
+    + {static} String GREEN_BACKGROUND
+    + {static} String YELLOW_BACKGROUND
+    + {static} String BLUE_BACKGROUND
+    + {static} String PURPLE_BACKGROUND
+    + {static} String CYAN_BACKGROUND
+    + {static} String WHITE_BACKGROUND
+    + {static} String BLACK_TEXT
+    + {static} String RED_TEXT
+    + {static} String GREEN_TEXT
+    + {static} String YELLOW_TEXT
+    + {static} String BLUE_TEXT
+    + {static} String PURPLE_TEXT
+    + {static} String CYAN_TEXT
+    + {static} String WHITE_TEXT
+    + {static} String RESET_COLOR
+    --
+    + {static} void print(String)
+    + {static} void println(String)
+    + {static} void printlt(String)
+    + {static} void printltn(String)
+    + {static} String leerString(String)
+    + {static} String leerString()
+    + {static} Integer leerEnteroEntre(int, int, String)
+    + {static} Integer leerEntero(String)
+    + {static} Integer leerEntero()
+    + {static} boolean leerBooleano(String)
+    + {static} boolean leerBooleano()
+    + {static} char leerCaracter(String)
+    + {static} char leerCaracter()
+    + {static} float leerFlotante(String)
+    + {static} float leerFlotante()
+    + {static} void mostrarMensajeConColor(String, int)
+    + {static} void mostrarMensajeConFondo(String, int)
+    + {static} void linea(int)
+  }
+}
+
+package ColumbiaViajes <<folder>>{
+  class Main{
+  }
+  class EntradaSalida <<Serializable>>{
+    --
+    + {static} void mostrarMenuLogin(Empresa)
+    + {static} void mostrarMenuLogin()
+  }
+  class Sucursal <<Serializable>>{
+    - String code
+    - String direccion
+    - String email
+    - String telefono
+    --
+    + Sucursal(String, String, String, String)
+    + String getCode()
+    + String getDireccion()
+    + String getEmail()
+    + String getTelefono()
+  }
+  class Hotel <<Serializable>>{
+    - String nombre
+    - String dirección
+    - String ciudad
+    - String teléfono
+    - int plazasDisponibles
+    - float precio
+    --
+    +  Hotel(String, String, String, String, int, float )
+    + String getNombre()
+    + String getDirección()
+    + String getCiudad() 
+    + String getTeléfono()
+    + int getPlazasDisponibles()
+    + float getPrecio()
+  }
+  class Vuelo <<Serializable>>{
+    - int numeroVuelo
+    - String fecha
+    - String origen
+    - String destino
+    - int plazasTotales
+    - int plazasTurista
+    - float precio
+    --
+    + Vuelo(int, String, String, String, int, int, float)
+    + int getNumeroVuelo()
+    + String getFecha()
+    + String getOrigen()
+    + String getDestino()
+    + int getPlazasTotales()
+    + int getPlazasTurista()
+    + float getPrecio()
+  }
+  class Empresa <<Serializable>>{
+    --
+    + Empresa()
+    + void serializar(String)
+    + Empresa deSerializar(String)
+    + void agregarUsuario(Usuario)
+    + void agregarSucursal(Sucursal)
+    + void agregarVuelo(Vuelo)
+    + void agregarHotel(Hotel)
+    + ArrayList<Usuario> getUsuarios()
+    + ArrayList<Sucursal> getSucursales()
+    + ArrayList<Vuelo> getVuelos()
+    + ArrayList<Hotel> getHoteles()
+    + void OrdenarVendedores()
+    + ArrayList<Usuario> getUsuarios(String)
+    + void listarUsuarios()
+    + void listarUsuarios(String)
+    + void listarSucursales()
+    + void listarVuelos()
+    + void listarHoteles()
+    + Usuario validarUsuario(String)
+    + boolean validarId(String)
+    + boolean validarNumeroVuelos(int)
+    + boolean validarHotel(String)
+    + boolean validarSucursal(String)
+    + boolean hayUsuario(String)
+    + Usuario buscarUsuario(String)
+    + Sucursal buscarSucursal(String)
+    + Vuelo buscarVuelo(int)
+    + Hotel buscarHotel(String)
+    + Usuario listarEncontrar(String)
+    + public void agregarDuenio(Duenio)
+  }
+  abstract class Usuario <<Serializable>>{
+    - String nombre
+    - String apellido
+    - String id
+    - String clave
+    - String rol
+    - String direccion
+    - String email
+    - String telefono
+    --
+    + Usuario(String, String, String, String, String, String, String, String,)
+    + Usuario()
+    + String getNombre()
+    + void setNombre(String)
+    + String getApellido()
+    + void setApellido(String)
+    + String getId()
+    + void setId(String)
+    + String getClave()
+    + void setClave(String)
+    + String getRol()
+    + void setRol(String)
+    + String getDireccion()
+    + void setDireccion(String)
+    + String getEmail()
+    + void setEmail(String)
+    + String getTelefono()
+    + void setTelefono(String)
+    - int opcionesOpcionesEditar()
+    + void editInfoPersonal(Empresa)
+    + void getInfoUsuario(Empresa)
+    + void getInfoUsuario(Empresa, String)
+    - int mostrarOpcionesModificar()
+    + void modificarUsuario(Empresa, String)
+    + void aniadirAdmin(Empresa)
+    + void aniadirVendedor(Empresa)
+    -- Abstract --
+    + int {abstract} opcionMenuPrincipal()
+    + void {abstract} mostrarMenuPrincipal()
+  }
+  class Duenio <<Serializable>>{
+    --
+    + Duenio(String, String, String, String, String, String, String)
+    + void aniadirDuenio(Empresa)
+    + void agregarVuelo(Empresa)
+    + void agregarHotel(Empresa)
+    + void agregarSucursal(Empresa)
+    + void mostrarLista(ArrayList<Vendedor>)
+  }
+  class Administrador <<Serializable>>{
+    --
+    + Administrador(String, String, String, String, String, String, String)
+  }
+  class Vendedor <<Serializable>>{
+    - float facturacion
+    --
+    + Vendedor(String, String, String, String, String, String, String)
+    + void getInfoCliente(Empresa)
+    + void venderaCliente(Empresa)
+    + void aniadirCliente(Empresa)
+    + float getFacturacion()
+    + String getFacturacionReducida()
+  }
+  class Cliente <<Serializable>>{
+    - Sucursal sucursalAsigned
+    - Vuelo vueloAsigned
+    - Hotel hotelAsigned
+    --
+    + Cliente(String, String, String, String, String, String, String, Sucursal, Hotel, Vuelo)
+    + void setVuelo(Vuelo)
+    + void setHotel(Hotel)
+    + void setSucursal(Sucursal)
+    + void getInfoCliente()
+  }
+}
+
+Usuario <|-down- "*" Cliente
+Usuario <|-left- "*" Vendedor
+Usuario <|-down- "*" Administrador
+Usuario <|-down- "*" Duenio
+
+Empresa "1" o-down- "*" Usuario : -usuarios
+Empresa "1" o-down- "*" Sucursal : -sucursales
+Empresa "1" o-right- "*" Vuelo : -vuelos
+Empresa "1" o-left- "*" Hotel : -hoteles
+
+EntradaSalida "1" <-- "1" Empresa
+EntradaSalida <- Main
+
+@enduml

@@ -1,0 +1,112 @@
+@startuml
+
+hide members
+hide circle
+show fields
+SKINPARAM classAttributeIconSize 0
+
+package ColumbiaViajes <<folder>>{
+  class Vuelo <<Serializable>>{
+    - int numeroVuelo
+    - String fecha
+    - String origen
+    - String destino
+    - int plazasTotales
+    - int plazasTurista
+    - float precio
+    --
+    + Vuelo(int, String, String, String, int, int, float)
+    + int getNumeroVuelo()
+    + String getFecha()
+    + String getOrigen()
+    + String getDestino()
+    + int getPlazasTotales()
+    + int getPlazasTurista()
+    + float getPrecio()
+  }
+  class Empresa <<Serializable>>{
+    --
+    + Empresa()
+    + void serializar(String)
+    + Empresa deSerializar(String)
+    + void agregarUsuario(Usuario)
+    + void agregarSucursal(Sucursal)
+    + void agregarVuelo(Vuelo)
+    + void agregarHotel(Hotel)
+    + ArrayList<Usuario> getUsuarios()
+    + ArrayList<Sucursal> getSucursales()
+    + ArrayList<Vuelo> getVuelos()
+    + ArrayList<Hotel> getHoteles()
+    + void OrdenarVendedores()
+    + ArrayList<Usuario> getUsuarios(String)
+    + void listarUsuarios()
+    + void listarUsuarios(String)
+    + void listarSucursales()
+    + void listarVuelos()
+    + void listarHoteles()
+    + Usuario validarUsuario(String)
+    + boolean validarId(String)
+    + boolean validarNumeroVuelos(int)
+    + boolean validarHotel(String)
+    + boolean validarSucursal(String)
+    + boolean hayUsuario(String)
+    + Usuario buscarUsuario(String)
+    + Sucursal buscarSucursal(String)
+    + Vuelo buscarVuelo(int)
+    + Hotel buscarHotel(String)
+    + Usuario listarEncontrar(String)
+    + public void agregarDuenio(Duenio)
+  }
+  abstract class Usuario <<Serializable>>{
+    - String nombre
+    - String apellido
+    - String id
+    - String clave
+    - String rol
+    - String direccion
+    - String email
+    - String telefono
+    --
+    + Usuario(String, String, String, String, String, String, String, String,)
+    + Usuario()
+    + String getNombre()
+    + void setNombre(String)
+    + String getApellido()
+    + void setApellido(String)
+    + String getId()
+    + void setId(String)
+    + String getClave()
+    + void setClave(String)
+    + String getRol()
+    + void setRol(String)
+    + String getDireccion()
+    + void setDireccion(String)
+    + String getEmail()
+    + void setEmail(String)
+    + String getTelefono()
+    + void setTelefono(String)
+    - int opcionesOpcionesEditar()
+    + void editInfoPersonal(Empresa)
+    + void getInfoUsuario(Empresa)
+    + void getInfoUsuario(Empresa, String)
+    - int mostrarOpcionesModificar()
+    + void modificarUsuario(Empresa, String)
+    + void aniadirAdmin(Empresa)
+    + void aniadirVendedor(Empresa)
+    -- Abstract --
+    + int {abstract} opcionMenuPrincipal()
+    + void {abstract} mostrarMenuPrincipal()
+  }
+  class Duenio <<Serializable>>{
+    --
+    + Duenio(String, String, String, String, String, String, String)
+    + void aniadirDuenio(Empresa)
+    + void agregarVuelo(Empresa)
+    + void agregarHotel(Empresa)
+    + void agregarSucursal(Empresa)
+    + void mostrarLista(ArrayList<Vendedor>)
+  }
+
+}
+
+@enduml

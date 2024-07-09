@@ -1,0 +1,74 @@
+@startuml
+
+hide members
+hide circle
+show fields
+SKINPARAM classAttributeIconSize 0
+
+package ColumbiaViajes <<folder>>{
+  class Main{
+  }
+  class EntradaSalida <<Serializable>>{
+    --
+    + {static} void mostrarMenuLogin(Empresa)
+    + {static} void mostrarMenuLogin()
+  }
+  class Sucursal <<Serializable>>{
+    - String code
+    - String direccion
+    - String email
+    - String telefono
+    --
+    + Sucursal(String, String, String, String)
+    + String getCode()
+    + String getDireccion()
+    + String getEmail()
+    + String getTelefono()
+  }
+  class Hotel <<Serializable>>{
+    - String nombre
+    - String dirección
+    - String ciudad
+    - String teléfono
+    - int plazasDisponibles
+    - float precio
+    --
+    +  Hotel(String, String, String, String, int, float )
+    + String getNombre()
+    + String getDirección()
+    + String getCiudad() 
+    + String getTeléfono()
+    + int getPlazasDisponibles()
+    + float getPrecio()
+  }
+
+
+
+  class Administrador <<Serializable>>{
+    --
+    + Administrador(String, String, String, String, String, String, String)
+  }
+  class Vendedor <<Serializable>>{
+    - float facturacion
+    --
+    + Vendedor(String, String, String, String, String, String, String)
+    + void getInfoCliente(Empresa)
+    + void venderaCliente(Empresa)
+    + void aniadirCliente(Empresa)
+    + float getFacturacion()
+    + String getFacturacionReducida()
+  }
+  class Cliente <<Serializable>>{
+    - Sucursal sucursalAsigned
+    - Vuelo vueloAsigned
+    - Hotel hotelAsigned
+    --
+    + Cliente(String, String, String, String, String, String, String, Sucursal, Hotel, Vuelo)
+    + void setVuelo(Vuelo)
+    + void setHotel(Hotel)
+    + void setSucursal(Sucursal)
+    + void getInfoCliente()
+  }
+}
+
+@enduml

@@ -1,0 +1,83 @@
+@startuml
+
+actor User
+User -> EntradaSalida: mostrarMenuLogin()
+activate EntradaSalida
+
+EntradaSalida -> Administrador: mostrarMenuPrincipal()
+activate Administrador
+
+Administrador -> Administrador: opcionMenuPrincipal()
+alt Opcion 4 (agregar Vendedor)
+Administrador -> Usuario: aniadirVendedor(Empresa)
+activate Usuario
+
+Usuario -> Consola: leerString(String)
+activate Consola
+Consola -> Consola: leerString(String)
+Consola --> Usuario: nombre:String
+deactivate Consola
+
+Usuario -> Consola: leerString(String)
+activate Consola
+Consola -> Consola: leerString(String)
+Consola --> Usuario: apellido:String
+deactivate Consola
+
+Usuario -> Consola: leerString(String)
+activate Consola
+Consola -> Consola: leerString(String)
+Consola --> Usuario: direc:String
+deactivate Consola
+
+Usuario -> Consola: leerString(String)
+activate Consola
+Consola -> Consola: leerString(String)
+Consola --> Usuario: email:String
+deactivate Consola
+
+Usuario -> Consola: leerString(String)
+activate Consola
+Consola -> Consola: leerString(String)
+Consola --> Usuario: telefono:String
+deactivate Consola
+
+loop validarID>true
+Usuario -> Consola: leerString(String)
+activate Consola
+Consola -> Consola: leerString(String)
+Consola --> Usuario: id:String
+Usuario -> Empresa: validarID(String)
+activate Empresa
+Empresa --> Usuario: true/false
+deactivate Empresa
+deactivate Consola
+end
+
+Usuario -> Consola: leerString(String)
+activate Consola
+Consola -> Consola: leerString(String)
+Consola --> Usuario: clave:String
+deactivate Consola
+
+Usuario -> Empresa: agregarUsuario(Usuario)
+activate Empresa
+Empresa -> Empresa: Usuarios.add(Usuario)
+
+
+Usuario -> Empresa: serializar(String)
+
+Empresa --> Usuario
+deactivate Empresa
+Usuario --> Administrador
+deactivate Usuario
+
+end
+
+Administrador --> EntradaSalida: mostrarMenuPrincipal()
+deactivate Administrador
+
+EntradaSalida --> User: mostrarMenuLogin()
+deactivate EntradaSalida
+
+@enduml

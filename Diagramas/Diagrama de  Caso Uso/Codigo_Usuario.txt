@@ -1,0 +1,38 @@
+@startuml
+left to right direction
+
+
+rectangle "Menu Editar Usuario" {
+  usecase "Nombre" as MAB1
+  usecase "Apellido" as MAB2
+  usecase "Id" as MAB3
+  usecase "Clave" as MAB4
+  usecase "Direccion" as MAB5
+  usecase "Email" as MAB6
+  usecase "Telefono" as MAB7
+}
+Usuario --> MAB1
+Usuario --> MAB2
+Usuario --> MAB3
+Usuario --> MAB4
+Usuario --> MAB5
+Usuario --> MAB6
+Usuario --> MAB7
+
+rectangle "Menu Modificar Usuario" {
+  usecase "Nombre" as MBA1
+  usecase "Apellido" as MBA2
+  usecase "Id" as MBA3
+  usecase "Direccion" as MBA4
+  usecase "Email" as MBA5
+  usecase "Telefono" as MBA6
+}
+Usuario --> MBA1
+Usuario --> MBA2
+Usuario --> MBA3
+Usuario --> MBA4
+Usuario --> MBA5
+Usuario --> MBA6
+
+
+@enduml

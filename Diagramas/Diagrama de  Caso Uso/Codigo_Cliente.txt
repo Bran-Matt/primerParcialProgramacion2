@@ -1,0 +1,19 @@
+@startuml
+left to right direction
+
+rectangle "Menu de Cliente" {
+  usecase "Informacion PERSONAL" as MI1
+  usecase "Editar Perfil" as MI2
+  usecase "Consultar SUCURSAL" as MI3
+  usecase "Consultar HOTEL" as MI4
+  usecase "Consultar VUELO" as MI5
+  usecase "salir" as MI6
+}
+Cliente --> MI1
+Cliente --> MI2
+Cliente --> MI3
+Cliente --> MI4
+Cliente --> MI5
+Cliente --> MI6
+
+@enduml
